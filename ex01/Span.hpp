@@ -4,6 +4,7 @@
 #include <vector>
 #include <exception>
 #include <algorithm>
+#include <limits>
 
 class Span {
 
@@ -20,4 +21,12 @@ class Span {
 	void addNumber(int number);
 	int shortestSpan(void);
 	int longestSpan(void);
+
+	template<typename InputIt>
+	void addRange(InputIt first, InputIt last) {
+
+		if (std::distance(first, last) + _contain.size() > _maxSize)
+			throw std::runtime_error("Adding this range would exceed max size");
+			_contain.insert(_contain.end(), first, last);
+	}
 };

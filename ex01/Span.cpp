@@ -25,13 +25,19 @@ int Span::longestSpan(void) {
 
 int Span::shortestSpan(void) {
 
+	 if (_contain.size() < 2)
+		throw std::runtime_error("Not enough numbers to find a span");
+
 	int span;
 	std::vector<int> copy = _contain;
 
 	std::sort(copy.begin(), copy.end());
 
-	span = copy[1] - copy[0];
+	int minSpan = std::numeric_limits<int>::max();
 	for (size_t i = 1; i < copy.size(); ++i) {
-		if ()
+		int diff = copy[i] - copy[i - 1];
+		if (diff < minSpan)
+			minSpan = diff;
 	}
+	return (minSpan);
 }
