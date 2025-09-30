@@ -5,6 +5,10 @@
 #include <exception>
 #include <algorithm>
 #include <limits>
+#include <cstdlib>
+
+#define BRIGHT_BLUE "\033[94m"
+#define RESET "\033[0m"
 
 class Span {
 
