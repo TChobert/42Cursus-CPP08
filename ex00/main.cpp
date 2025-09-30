@@ -17,9 +17,10 @@ int main() {
 
     std::cout << "=== Vector Test ===" << std::endl;
     try {
-        int& val = easyfind(vec, 30);
-        std::cout << "Found value in vector: " << val << std::endl;
-        val = 300;
+        std::vector<int>::iterator itVec = easyfind(vec, 30);
+        std::cout << "Found value in vector: " << *itVec << std::endl;
+		std::cout << "Modification of value with 300" << std::endl;
+        *itVec = 300;
         std::cout << "After modification: " << vec[2] << std::endl;
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
@@ -41,14 +42,15 @@ int main() {
 
     std::cout << "\n=== List Test ===" << std::endl;
     try {
-        int& val = easyfind(lst, 20);
-        std::cout << "Found value in list: " << val << std::endl;
-        val = 150;
-
+        std::list<int>::iterator itLst = easyfind(lst, 20);
+        std::cout << "Found value in list: " << *itLst << std::endl;
+		std::cout << "Modification of value with 150" << std::endl;
+        *itLst = 150;
         std::cout << "After modification: ";
-        std::list<int>::iterator it;
-        for (it = lst.begin(); it != lst.end(); ++it)
-            std::cout << *it << " ";
+        std::list<int>::iterator itLst2;
+        for (itLst2 = lst.begin(); itLst2 != lst.end(); ++itLst2) {
+			std::cout << *itLst2 << " ";
+		}
         std::cout << std::endl;
 
     } catch (const std::exception& e) {
@@ -71,14 +73,15 @@ int main() {
     std::cout << "\n=== Deque Test ===" << std::endl;
 
     try {
-        int& val = easyfind(deq, 4);
-        std::cout << "Found value in deque: " << val << std::endl;
-        val = 400;
-
+        std::deque<int>::iterator itDeq = easyfind(deq, 4);
+        std::cout << "Found value in deque: " << *itDeq << std::endl;
+		std::cout << "Modification of value with 400" << std::endl;
+        *itDeq = 400;
         std::cout << "After modification: ";
-        std::deque<int>::iterator it;
-        for (it = deq.begin(); it != deq.end(); ++it)
-            std::cout << *it << " ";
+        std::deque<int>::iterator itDeq2;
+        for (itDeq2 = deq.begin(); itDeq2 != deq.end(); ++itDeq2) {
+            std::cout << *itDeq2 << " ";
+		}
         std::cout << std::endl;
 
     } catch (const std::exception& e) {
