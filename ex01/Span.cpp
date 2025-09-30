@@ -2,7 +2,27 @@
 
 Span::Span(unsigned int maxSize) : _maxSize(maxSize) {}
 
+Span::Span(const Span& other) {
+
+	_maxSize = other._maxSize;
+	for (std::vector<int>::const_iterator it = other._contain.begin(); it != other._contain.end(); ++it) {
+		_contain.push_back(*it);
+	}
+}
+
 Span::~Span(void) {}
+
+Span& Span::operator=(const Span& other) {
+
+	if (this != &other) {
+
+		this->_maxSize = other._maxSize;
+		for (std::vector<int>::const_iterator it = other._contain.begin(); it != other._contain.end(); ++it) {
+			this->_contain.push_back(*it);
+		}
+	}
+	return (*this);
+}
 
 void Span::addNumber(int number) {
 
@@ -28,9 +48,7 @@ int Span::shortestSpan(void) {
 	 if (_contain.size() < 2)
 		throw std::runtime_error("Not enough numbers to find a span");
 
-	int span;
 	std::vector<int> copy = _contain;
-
 	std::sort(copy.begin(), copy.end());
 
 	int minSpan = std::numeric_limits<int>::max();

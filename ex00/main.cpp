@@ -2,9 +2,11 @@
 #include <vector>
 #include <list>
 #include <deque>
+#include <cstdlib>
 #include "easyfind.hpp"
 
 int main() {
+
     // ===== Test avec std::vector =====
     std::vector<int> vec;
     int value = 10;
@@ -12,12 +14,12 @@ int main() {
         vec.push_back(value);
         value += 10;
     }
-    std::cout << "=== Vector Test ===" << std::endl;
 
+    std::cout << "=== Vector Test ===" << std::endl;
     try {
         int& val = easyfind(vec, 30);
         std::cout << "Found value in vector: " << val << std::endl;
-        val = 300; // modification via référence
+        val = 300;
         std::cout << "After modification: " << vec[2] << std::endl;
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
@@ -36,8 +38,8 @@ int main() {
         lst.push_back(value);
         value += 10;
     }
-    std::cout << "\n=== List Test ===" << std::endl;
 
+    std::cout << "\n=== List Test ===" << std::endl;
     try {
         int& val = easyfind(lst, 20);
         std::cout << "Found value in list: " << val << std::endl;
@@ -89,5 +91,5 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    return 0;
+    return (EXIT_SUCCESS);
 }

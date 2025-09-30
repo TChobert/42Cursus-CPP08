@@ -16,6 +16,8 @@ class Span {
 	public:
 
 	Span(unsigned int N);
+	Span(const Span& other);
+	Span& operator=(const Span& other);
 	~Span(void);
 
 	void addNumber(int number);
@@ -27,6 +29,6 @@ class Span {
 
 		if (std::distance(first, last) + _contain.size() > _maxSize)
 			throw std::runtime_error("Adding this range would exceed max size");
-			_contain.insert(_contain.end(), first, last);
+		_contain.insert(_contain.end(), first, last);
 	}
 };
