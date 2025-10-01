@@ -73,7 +73,7 @@ int main() {
 	MutantStack<int> copyStack(original);
 	std::cout << "Contents of copyStack (constructed from original): ";
 	for (MutantStack<int>::iterator it = copyStack.begin(); it != copyStack.end(); ++it)
-    	std::cout << *it << " ";
+		std::cout << *it << " ";
 	std::cout << std::endl;
 
 	// Modify original to ensure copy is independent
